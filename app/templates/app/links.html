@@ -1,0 +1,14 @@
+{% extends 'app/layout.html' %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+{% load static %}
+<a href ="https://www.adidas.ru" target="_blank"> <img src="{% static 'app/content/LogoAdidas.png' %}" alt="Logo 1" width="400" height="400"/></a>
+<p>Сайт Adidas.</p>
+<a href ="https://www.nike.com/ru/" target="_blank"> <img src="{% static 'app/content/LogoNike.png' %}" alt="Logo 1" width="400" height="400"/></a>
+<p>Сайт Nike.</p>
+<a href ="https://ru.puma.com" target="_blank"> <img src="{% static 'app/content/LogoPuma.jpg' %}" alt="Logo 1" width="400" height="400"/></a>
+<p>Сайт Puma.</p>
+
+{% endblock %}

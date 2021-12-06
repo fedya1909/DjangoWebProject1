@@ -1,0 +1,13 @@
+{% extends "app/layout.html" %}э
+
+{% block content %}
+{% if blogform != None %}
+<h3>Добавить статью</h3>
+<form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+    <div>
+        {{blogform.as_p }}
+        <button type="submit" class="save btn btn-default"> Сохранить статью </button>
+    </div>
+</form>
+{% endif %}
+{% endblock %}

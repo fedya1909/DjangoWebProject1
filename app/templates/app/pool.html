@@ -1,0 +1,54 @@
+{% extends 'app/layout.html' %}
+{% block content %}
+{% if form != None %}
+<br><h2>Оставьте Вашу анкету.</h2><br>
+<div class="comment">
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+        {{ form.name }}<br><br>
+        <label for="{{ form.city.id_for_label }}">{{ form.city.label }}:</label>
+        {{ form.city }}<br><br>
+        <label for="{{ form.job.id_for_label }}">{{ form.job.label }}:</label>
+        {{ form.job }}<br><br>
+        <label for="{{ form.gender.id_for_label }}">{{ form.gender.label }}:</label>
+        {{ form.gender }}<br><br>
+        <label for="{{ form.ask_shoes.id_for_label }}">{{ form.ask_shoes.label }}:</label>
+        {{ form.ask_shoes }}<br><br>
+        <label for="{{ form.interesting.id_for_label }}">{{ form.interesting.label }}:</label>
+        {{ form.interesting }}<br><br>
+        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}:</label>
+        {{ form.email }}<br><br>
+        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}:</label>
+        {{ form.message }}<br><br>
+        <div id="btn1"><input class="btn" type="submit" value="Отправить"></div>
+    </form>
+</div>
+{% else %}
+<br><h2>Благодарим за оставленный комментарий</h2>
+<h3>Вы оставили следующий комментарий</h3>
+<ul>
+    <li><span>Ваше имя:</span>{{ data.name }}</li>
+    <li><span>Ваш город:</span>{{ data.city }}</li>
+    <li><span>Ваша работа:</span>{{ data.job }}</li>
+    <li><span>Ваш пол:</span>{{ data.gender }}</li>
+    <li><span>Ваша любимая фирма из предложенных:</span>{{ data.ask_shoes }}</li>
+    <li><span>Вам интересен наш сайт?</span>{{ data.interesting }}</li>
+    <li><span>Ваша почта:</span>{{ data.email }}</li>
+    <li><span>Что вы о себе написали:</span>{{ data.message }}</li>
+</ul>
+{% endif %}
+<script>
+    $('#btn1').mouseover(function() {
+        $(this).find("btn1").css('color','green');
+    }).mouseout(function(){
+        $(this).find("btn1").css('color','white');
+    });
+
+    $('#label').mouseover(function() {
+        $(this).css('background-color','#52E93A');
+    }).mouseout(function(){
+        $(this).css('background-color','white');
+    });
+</script>
+{% endblock %}
